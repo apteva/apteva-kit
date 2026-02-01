@@ -1,0 +1,69 @@
+{
+  "name": "@apteva/apteva-kit",
+  "version": "0.1.102",
+  "description": "AI-powered React component library for building interactive agent interfaces",
+  "author": "Apteva",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/apteva/apteva-kit#readme",
+  "bugs": {
+    "url": "https://github.com/apteva/apteva-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apteva/apteva-kit.git"
+  },
+  "keywords": [
+    "react",
+    "ai",
+    "agent",
+    "components",
+    "chat",
+    "command",
+    "streaming",
+    "ui"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && npm run build:css",
+    "build:css": "npx @tailwindcss/cli -i src/styles/globals.css -o dist/styles.css --minify",
+    "prepublishOnly": "npm run build",
+    "dev": "./dev-watch.sh",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src",
+    "example": "./run-example.sh",
+    "example:install": "cd example && npm install",
+    "example:dev": "cd example && npm run dev",
+    "build:example": "npm run build && cd example && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwindcss": "^4",
+    "tsup": "^8.0.0",
+    "typescript": "^5"
+  }
+}

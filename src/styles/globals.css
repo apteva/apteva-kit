@@ -1,0 +1,1172 @@
+/* Apteva Kit - Minimal CSS (requires Tailwind in consuming app) */
+
+@layer components {
+  /* Keyframes for animations */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Animation utilities */
+  .animate-slideUp {
+    animation: slideUp 0.2s ease-out;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .apteva-scrollbar-hidden {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .apteva-scrollbar-hidden::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+
+  /* Apteva Markdown - Isolated styles */
+  .apteva-md {
+    font-size: 0.875rem !important;
+    line-height: 1.625 !important;
+    white-space: pre-wrap !important;
+    color: inherit !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .apteva-md-h2 {
+    all: unset !important;
+    display: block !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .apteva-md-h3 {
+    all: unset !important;
+    display: block !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.125rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .apteva-md-ul {
+    all: unset !important;
+    display: block !important;
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    padding-left: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .apteva-md-ol {
+    all: unset !important;
+    display: block !important;
+    list-style-type: decimal !important;
+    list-style-position: outside !important;
+    padding-left: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .apteva-md-li {
+    all: unset !important;
+    display: list-item !important;
+    padding-left: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Apteva Tool Call - Isolated styles */
+  .apteva-tool-call {
+    all: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    margin: 0.5rem 0 !important;
+    border-radius: 0.5rem !important;
+    background-color: rgba(128, 128, 128, 0.1) !important;
+    border: 1px solid rgba(128, 128, 128, 0.2) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .apteva-tool-call-dot {
+    all: unset !important;
+    display: block !important;
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+  }
+
+  .apteva-tool-call-dot-running {
+    background-color: #3b82f6 !important;
+    animation: blink 1s infinite !important;
+  }
+
+  .apteva-tool-call-dot-completed {
+    background-color: #22c55e !important;
+  }
+
+  .apteva-tool-call-dot-error {
+    background-color: #ef4444 !important;
+  }
+
+  .apteva-tool-call-name {
+    all: unset !important;
+    font-family: ui-monospace, monospace !important;
+    color: inherit !important;
+  }
+
+  .apteva-tool-call-status {
+    all: unset !important;
+    margin-left: auto !important;
+    color: rgba(128, 128, 128, 0.8) !important;
+  }
+
+  .apteva-tool-call-status-completed {
+    color: #22c55e !important;
+  }
+
+  .apteva-tool-call-status-error {
+    color: #ef4444 !important;
+  }
+
+  /* Apteva Markdown Tables */
+  .apteva-md-table-wrapper {
+    overflow-x: auto !important;
+    margin: 0.75rem 0 !important;
+  }
+
+  .apteva-md-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .apteva-md-th {
+    text-align: left !important;
+    padding: 0.5rem 0.75rem !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3) !important;
+    white-space: nowrap !important;
+  }
+
+  .apteva-md-td {
+    padding: 0.5rem 0.75rem !important;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15) !important;
+  }
+
+  .apteva-md-table tbody tr:hover {
+    background-color: rgba(128, 128, 128, 0.05) !important;
+  }
+
+  .apteva-md-table tbody tr:last-child .apteva-md-td {
+    border-bottom: none !important;
+  }
+
+  /* Apteva Markdown Images */
+  .apteva-md-img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 0.5rem !important;
+    margin: 0.5rem 0 !important;
+    display: block !important;
+  }
+
+  /* Apteva Markdown Links */
+  .apteva-md-link {
+    color: #3b82f6 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+  }
+
+  .apteva-md-link:hover {
+    color: #2563eb !important;
+  }
+
+  /* Apteva Markdown Inline Code */
+  .apteva-md-inline-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size: 0.8125rem !important;
+    background-color: rgba(128, 128, 128, 0.15) !important;
+    padding: 0.125rem 0.375rem !important;
+    border-radius: 0.25rem !important;
+  }
+
+  /* Typing Indicator Animation */
+  .apteva-typing-indicator {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  .apteva-typing-indicator span {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background-color: currentColor !important;
+    opacity: 0.4 !important;
+    animation: apteva-typing-blink 1.4s infinite both !important;
+  }
+
+  .apteva-typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s !important;
+  }
+
+  .apteva-typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s !important;
+  }
+
+  @keyframes apteva-typing-blink {
+    0%, 80%, 100% { opacity: 0.4; }
+    40% { opacity: 1; }
+  }
+
+  /* Apteva Chat Header - Isolated styles */
+  .apteva-chat-header {
+    all: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.75rem 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .apteva-chat-title {
+    all: unset !important;
+    display: block !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    color: #111827 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-chat-title {
+      color: #ffffff !important;
+    }
+  }
+
+  .dark .apteva-chat-title {
+    color: #ffffff !important;
+  }
+
+  .apteva-chat-status {
+    all: unset !important;
+    display: block !important;
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    margin-top: 0.125rem !important;
+  }
+
+  .apteva-chat-status-ready {
+    color: #737373 !important;
+  }
+
+  .apteva-chat-status-thinking {
+    color: #737373 !important;
+  }
+
+  .apteva-chat-status-tool {
+    color: #3b82f6 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-chat-status-ready {
+      color: #525252 !important;
+    }
+    .apteva-chat-status-thinking {
+      color: #525252 !important;
+    }
+    .apteva-chat-status-tool {
+      color: #60a5fa !important;
+    }
+  }
+
+  .dark .apteva-chat-status-ready {
+    color: #525252 !important;
+  }
+
+  .dark .apteva-chat-status-thinking {
+    color: #525252 !important;
+  }
+
+  .dark .apteva-chat-status-tool {
+    color: #60a5fa !important;
+  }
+
+  /* Apteva Message List */
+  .apteva-message-list {
+    display: block !important;
+    flex: 1 1 0% !important;
+    overflow-y: auto !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .apteva-message-row-user {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .apteva-message-row-assistant {
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Apteva Message Bubbles */
+  .apteva-message-bubble {
+    display: block !important;
+    max-width: 95% !important;
+    padding: 0.625rem 1rem !important;
+    border-radius: 1rem !important;
+    box-sizing: border-box !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .apteva-message-user {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border-bottom-right-radius: 0.375rem !important;
+  }
+
+  .apteva-message-assistant {
+    background-color: #fafafa !important;
+    color: #0a0a0a !important;
+    border-bottom-left-radius: 0.375rem !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-message-assistant {
+      background-color: #262626 !important;
+      color: #fafafa !important;
+    }
+  }
+
+  .dark .apteva-message-assistant {
+    background-color: #262626 !important;
+    color: #fafafa !important;
+  }
+
+  .apteva-message-content-user,
+  .apteva-message-content-assistant {
+    display: block !important;
+  }
+
+  .apteva-message-text {
+    display: block !important;
+    white-space: pre-wrap !important;
+    font-size: 0.875rem !important;
+    line-height: 1.625 !important;
+    color: inherit !important;
+  }
+
+  .apteva-message-widgets {
+    display: block !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .apteva-message-timestamp {
+    display: block !important;
+    font-size: 0.75rem !important;
+    margin-top: 0.375rem !important;
+  }
+
+  .apteva-message-timestamp-user {
+    color: #bfdbfe !important;
+  }
+
+  .apteva-message-timestamp-assistant {
+    color: #737373 !important;
+  }
+
+  /* Segmented messages (with tool calls) */
+  .apteva-message-segmented {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    width: 95% !important;
+    max-width: 95% !important;
+  }
+
+  /* Inside segmented, all children size to content (container is already constrained) */
+  .apteva-message-segmented .apteva-message-bubble {
+    width: fit-content !important;
+    max-width: 100% !important;
+  }
+
+  .apteva-tool-call-standalone {
+    display: block !important;
+  }
+
+  .apteva-widget-standalone {
+    display: block !important;
+  }
+
+  /* Apteva Widgets - Isolated styles */
+  .apteva-widget {
+    font-family: system-ui, -apple-system, sans-serif !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    color: #171717 !important;
+  }
+
+  .apteva-widget * {
+    box-sizing: border-box !important;
+  }
+
+  .apteva-widget-skeleton {
+    font-family: system-ui, -apple-system, sans-serif !important;
+  }
+
+  .apteva-widget-skeleton * {
+    box-sizing: border-box !important;
+  }
+
+  .apteva-widget-skeleton [class*="bg-neutral-200"] {
+    background-color: #e5e5e5 !important;
+  }
+
+  .apteva-widget-skeleton [class*="bg-neutral-100"] {
+    background-color: #f5f5f5 !important;
+  }
+
+  .apteva-widget-skeleton [class*="bg-neutral-300"] {
+    background-color: #d4d4d4 !important;
+  }
+
+  .apteva-widget-skeleton [class*="border-neutral"] {
+    border-color: #e5e5e5 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-widget-skeleton [class*="bg-neutral-700"] {
+      background-color: #404040 !important;
+    }
+    .apteva-widget-skeleton [class*="bg-neutral-800"] {
+      background-color: #262626 !important;
+    }
+    .apteva-widget-skeleton [class*="bg-neutral-600"] {
+      background-color: #525252 !important;
+    }
+    .apteva-widget-skeleton [class*="border-neutral"] {
+      border-color: #262626 !important;
+    }
+  }
+
+  .dark .apteva-widget-skeleton [class*="bg-neutral-700"] {
+    background-color: #404040 !important;
+  }
+
+  .dark .apteva-widget-skeleton [class*="bg-neutral-800"] {
+    background-color: #262626 !important;
+  }
+
+  .dark .apteva-widget-skeleton [class*="bg-neutral-600"] {
+    background-color: #525252 !important;
+  }
+
+  .dark .apteva-widget-skeleton [class*="border-neutral"] {
+    border-color: #262626 !important;
+  }
+
+  /* Widget card backgrounds */
+  .apteva-widget > div {
+    background-color: #ffffff !important;
+  }
+
+  /* Widget text colors */
+  .apteva-widget h3,
+  .apteva-widget h4 {
+    color: #171717 !important;
+  }
+
+  .apteva-widget p,
+  .apteva-widget span {
+    color: #525252 !important;
+  }
+
+  /* Widget borders */
+  .apteva-widget > div[class*="border"] {
+    border-color: #e5e5e5 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-widget {
+      color: #fafafa !important;
+    }
+    .apteva-widget > div {
+      background-color: #171717 !important;
+    }
+    .apteva-widget h3,
+    .apteva-widget h4 {
+      color: #fafafa !important;
+    }
+    .apteva-widget p,
+    .apteva-widget span {
+      color: #a3a3a3 !important;
+    }
+    .apteva-widget > div[class*="border"] {
+      border-color: #262626 !important;
+    }
+  }
+
+  .dark .apteva-widget {
+    color: #fafafa !important;
+  }
+
+  .dark .apteva-widget > div {
+    background-color: #171717 !important;
+  }
+
+  .dark .apteva-widget h3,
+  .dark .apteva-widget h4 {
+    color: #fafafa !important;
+  }
+
+  .dark .apteva-widget p,
+  .dark .apteva-widget span {
+    color: #a3a3a3 !important;
+  }
+
+  .dark .apteva-widget > div[class*="border"] {
+    border-color: #262626 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-message-timestamp-assistant {
+      color: #525252 !important;
+    }
+  }
+
+  .dark .apteva-message-timestamp-assistant {
+    color: #525252 !important;
+  }
+
+  /* Apteva Tool Cards */
+  .apteva-tool-card {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 0.75rem !important;
+    font-size: 0.875rem !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    box-sizing: border-box !important;
+  }
+
+  .apteva-tool-card-running {
+    background-color: #eff6ff !important;
+    border-color: #bfdbfe !important;
+    color: #1d4ed8 !important;
+  }
+
+  .apteva-tool-card-completed {
+    background-color: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+    color: #15803d !important;
+  }
+
+  .apteva-tool-card-error {
+    background-color: #fef2f2 !important;
+    border-color: #fecaca !important;
+    color: #b91c1c !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-tool-card-running {
+      background-color: rgba(59, 130, 246, 0.1) !important;
+      border-color: rgba(59, 130, 246, 0.3) !important;
+      color: #60a5fa !important;
+    }
+    .apteva-tool-card-completed {
+      background-color: rgba(34, 197, 94, 0.1) !important;
+      border-color: rgba(34, 197, 94, 0.3) !important;
+      color: #4ade80 !important;
+    }
+    .apteva-tool-card-error {
+      background-color: rgba(239, 68, 68, 0.1) !important;
+      border-color: rgba(239, 68, 68, 0.3) !important;
+      color: #f87171 !important;
+    }
+  }
+
+  .dark .apteva-tool-card-running {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+  }
+
+  .dark .apteva-tool-card-completed {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+    color: #4ade80 !important;
+  }
+
+  .dark .apteva-tool-card-error {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #f87171 !important;
+  }
+
+  .apteva-tool-icon {
+    width: 1rem !important;
+    height: 1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .apteva-tool-icon-spin {
+    animation: apteva-spin 1s linear infinite !important;
+  }
+
+  .apteva-tool-spinner-track {
+    opacity: 0.25 !important;
+  }
+
+  .apteva-tool-spinner-fill {
+    opacity: 0.75 !important;
+  }
+
+  .apteva-tool-label {
+    font-size: inherit !important;
+  }
+
+  .apteva-tool-label strong {
+    font-weight: 600 !important;
+  }
+
+  @keyframes apteva-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Tool preparing state */
+  .apteva-tool-card-preparing {
+    background-color: #fef3c7 !important;
+    border-color: #fcd34d !important;
+    color: #92400e !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-tool-card-preparing {
+      background-color: rgba(251, 191, 36, 0.15) !important;
+      border-color: rgba(251, 191, 36, 0.4) !important;
+      color: #fbbf24 !important;
+    }
+  }
+
+  .dark .apteva-tool-card-preparing {
+    background-color: rgba(251, 191, 36, 0.15) !important;
+    border-color: rgba(251, 191, 36, 0.4) !important;
+    color: #fbbf24 !important;
+  }
+
+  /* Pulse animation when receiving chunks */
+  @keyframes apteva-pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+    }
+    50% {
+      box-shadow: 0 0 8px 2px rgba(251, 191, 36, 0.5);
+    }
+  }
+
+  .apteva-tool-receiving {
+    animation: apteva-pulse-glow 0.4s ease-in-out !important;
+  }
+
+  /* Status text and character count */
+  .apteva-tool-status-text {
+    opacity: 0.7 !important;
+    font-weight: normal !important;
+  }
+
+  .apteva-tool-char-count {
+    opacity: 0.6 !important;
+    font-weight: normal !important;
+    font-size: 0.85em !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+
+  .apteva-tool-dots {
+    display: inline-flex !important;
+    margin-left: 1px !important;
+  }
+
+  .apteva-tool-dots span {
+    animation: apteva-dot-pulse 1.4s infinite ease-in-out !important;
+    opacity: 0.3 !important;
+  }
+
+  .apteva-tool-dots span:nth-child(1) {
+    animation-delay: 0s !important;
+  }
+
+  .apteva-tool-dots span:nth-child(2) {
+    animation-delay: 0.2s !important;
+  }
+
+  .apteva-tool-dots span:nth-child(3) {
+    animation-delay: 0.4s !important;
+  }
+
+  @keyframes apteva-dot-pulse {
+    0%, 60%, 100% {
+      opacity: 0.3;
+    }
+    30% {
+      opacity: 1;
+    }
+  }
+
+  /* Tool stream output - shows inline on one line */
+  .apteva-tool-stream-separator {
+    opacity: 0.5 !important;
+  }
+
+  .apteva-tool-stream-output {
+    font-weight: 400 !important;
+    opacity: 0.85 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 300px !important;
+    display: inline-block !important;
+    vertical-align: bottom !important;
+  }
+
+  /* Apteva Composer - Isolated styles */
+  .apteva-composer {
+    position: relative !important;
+    border-radius: 1rem !important;
+    background-color: #ffffff !important;
+    border: 2px solid #d4d4d4 !important;
+    padding: 0.5rem 0.75rem !important;
+    display: grid !important;
+    column-gap: 0.75rem !important;
+    row-gap: 0.5rem !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .apteva-composer textarea {
+    color: #171717 !important;
+    background-color: transparent !important;
+  }
+
+  .apteva-composer textarea::placeholder {
+    color: #a3a3a3 !important;
+  }
+
+  button.apteva-composer-menu-btn {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .apteva-composer-menu {
+    background-color: #262626 !important;
+  }
+
+  .apteva-composer-menu button {
+    background-color: transparent !important;
+    color: #ffffff !important;
+  }
+
+  .apteva-composer-menu button:hover {
+    background-color: #404040 !important;
+  }
+
+  .apteva-composer-send-btn {
+    background-color: #ffffff !important;
+    border: 1px solid #d4d4d4 !important;
+    color: #404040 !important;
+  }
+
+  .apteva-composer-send-btn svg {
+    stroke: currentColor !important;
+  }
+
+  /* Stop button - scoped styles for cross-app compatibility */
+  .apteva-composer-stop-btn {
+    all: unset !important;
+    box-sizing: border-box !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease !important;
+    background-color: #fef2f2 !important;
+    border: 1px solid #f87171 !important;
+    color: #dc2626 !important;
+  }
+
+  .apteva-composer-stop-btn:hover {
+    background-color: #fee2e2 !important;
+  }
+
+  .apteva-composer-stop-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    fill: currentColor !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-composer {
+      background-color: #171717 !important;
+      border-color: #404040 !important;
+    }
+    .apteva-composer textarea {
+      color: #fafafa !important;
+    }
+    .apteva-composer textarea::placeholder {
+      color: #525252 !important;
+    }
+    button.apteva-composer-menu-btn {
+      background-color: transparent !important;
+      background: transparent !important;
+    }
+    .apteva-composer-send-btn {
+      background-color: #262626 !important;
+      border-color: #404040 !important;
+      color: #d4d4d4 !important;
+    }
+    .apteva-composer-stop-btn {
+      background-color: rgba(127, 29, 29, 0.3) !important;
+      border-color: #f87171 !important;
+      color: #f87171 !important;
+    }
+    .apteva-composer-stop-btn:hover {
+      background-color: rgba(127, 29, 29, 0.5) !important;
+    }
+  }
+
+  .dark .apteva-composer {
+    background-color: #171717 !important;
+    border-color: #404040 !important;
+  }
+
+  .dark .apteva-composer textarea {
+    color: #fafafa !important;
+  }
+
+  .dark .apteva-composer textarea::placeholder {
+    color: #525252 !important;
+  }
+
+  .dark button.apteva-composer-menu-btn {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  .dark .apteva-composer-send-btn {
+    background-color: #262626 !important;
+    border-color: #404040 !important;
+    color: #d4d4d4 !important;
+  }
+
+  .dark .apteva-composer-stop-btn {
+    background-color: rgba(127, 29, 29, 0.3) !important;
+    border-color: #f87171 !important;
+    color: #f87171 !important;
+  }
+
+  .dark .apteva-composer-stop-btn:hover {
+    background-color: rgba(127, 29, 29, 0.5) !important;
+  }
+
+  /* Composer textarea - hidden scrollbar */
+  .apteva-composer-textarea {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .apteva-composer-textarea::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Apteva Chat Container */
+  .apteva-chat {
+    background-color: #ffffff !important;
+  }
+
+  .apteva-chat-header {
+    background-color: #ffffff !important;
+    border-color: #e5e5e5 !important;
+  }
+
+  .apteva-message-list {
+    background-color: #f5f5f5 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-chat {
+      background-color: #0a0a0a !important;
+    }
+    .apteva-chat-header {
+      background-color: #171717 !important;
+      border-color: #262626 !important;
+    }
+    .apteva-message-list {
+      background-color: #0a0a0a !important;
+    }
+  }
+
+  .dark .apteva-chat {
+    background-color: #0a0a0a !important;
+  }
+
+  .dark .apteva-chat-header {
+    background-color: #171717 !important;
+    border-color: #262626 !important;
+  }
+
+  .dark .apteva-message-list {
+    background-color: #0a0a0a !important;
+  }
+
+  /* Apteva List & Table Streaming Animations */
+  @keyframes apteva-slide-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes apteva-highlight-fade {
+    0% {
+      background-color: rgba(59, 130, 246, 0.15);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  .apteva-list-item-new {
+    animation: apteva-slide-in 0.3s ease-out, apteva-highlight-fade 0.5s ease-out 0.3s !important;
+  }
+
+  .apteva-table-row-new {
+    animation: apteva-slide-in 0.3s ease-out, apteva-highlight-fade 0.5s ease-out 0.3s !important;
+  }
+
+  .apteva-table-row-new td {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+
+  /* Streaming indicator pulse */
+  .apteva-list-streaming,
+  .apteva-table-streaming {
+    border-top: 1px dashed rgba(128, 128, 128, 0.3) !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-list-item-new,
+    .apteva-table-row-new {
+      animation: apteva-slide-in 0.3s ease-out, apteva-highlight-fade-dark 0.5s ease-out 0.3s !important;
+    }
+
+    .apteva-table-row-new td {
+      background-color: rgba(59, 130, 246, 0.15) !important;
+    }
+  }
+
+  .dark .apteva-list-item-new,
+  .dark .apteva-table-row-new {
+    animation: apteva-slide-in 0.3s ease-out, apteva-highlight-fade-dark 0.5s ease-out 0.3s !important;
+  }
+
+  .dark .apteva-table-row-new td {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+  }
+
+  @keyframes apteva-highlight-fade-dark {
+    0% {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  /* ==================== CHAT VARIANTS ==================== */
+
+  /* Minimal Variant - borderless, subtle, for embedding */
+  .apteva-chat-minimal {
+    background-color: transparent !important;
+  }
+
+  .apteva-chat-minimal .apteva-chat-header {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .apteva-chat-minimal .apteva-message-list {
+    background-color: transparent !important;
+  }
+
+  .apteva-chat-minimal .apteva-composer {
+    background-color: transparent !important;
+    border: 1px solid rgba(128, 128, 128, 0.2) !important;
+  }
+
+  .apteva-chat-minimal .apteva-message-assistant {
+    background-color: rgba(128, 128, 128, 0.08) !important;
+  }
+
+  .apteva-chat-minimal .apteva-message-user {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    color: inherit !important;
+  }
+
+  /* Terminal Variant - monospace, dark, orange accent */
+  .apteva-chat-terminal {
+    background-color: #0a0a0a !important;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace !important;
+  }
+
+  .apteva-chat-terminal * {
+    font-family: inherit !important;
+  }
+
+  .apteva-chat-terminal .apteva-chat-header {
+    background-color: #0a0a0a !important;
+    border-color: #1a1a1a !important;
+  }
+
+  .apteva-chat-terminal .apteva-chat-title {
+    color: #e0e0e0 !important;
+    font-size: 0.875rem !important;
+  }
+
+  .apteva-chat-terminal .apteva-chat-status {
+    color: #666 !important;
+  }
+
+  .apteva-chat-terminal .apteva-chat-status-tool {
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-message-list {
+    background-color: #0a0a0a !important;
+  }
+
+  .apteva-chat-terminal .apteva-message-user {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    border-radius: 4px !important;
+  }
+
+  .apteva-chat-terminal .apteva-message-assistant {
+    background-color: #111 !important;
+    color: #e0e0e0 !important;
+    border-radius: 4px !important;
+    border: 1px solid #1a1a1a !important;
+  }
+
+  .apteva-chat-terminal .apteva-message-timestamp {
+    color: #444 !important;
+  }
+
+  .apteva-chat-terminal .apteva-message-timestamp-user {
+    color: #666 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer {
+    background-color: #111 !important;
+    border: 1px solid #1a1a1a !important;
+    border-radius: 4px !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer textarea {
+    color: #e0e0e0 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer textarea::placeholder {
+    color: #666 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer-send-btn {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #888 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer-send-btn:hover {
+    border-color: #f97316 !important;
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer-stop-btn {
+    background-color: rgba(249, 115, 22, 0.15) !important;
+    border-color: #f97316 !important;
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer-menu-btn {
+    color: #666 !important;
+  }
+
+  .apteva-chat-terminal .apteva-composer-menu-btn:hover {
+    color: #f97316 !important;
+    background-color: #1a1a1a !important;
+  }
+
+  .apteva-chat-terminal .apteva-tool-card-running {
+    background-color: rgba(249, 115, 22, 0.1) !important;
+    border-color: rgba(249, 115, 22, 0.3) !important;
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-tool-card-completed {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+    color: #4ade80 !important;
+  }
+
+  .apteva-chat-terminal .apteva-tool-card-preparing {
+    background-color: rgba(249, 115, 22, 0.1) !important;
+    border-color: rgba(249, 115, 22, 0.3) !important;
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-md-link {
+    color: #f97316 !important;
+  }
+
+  .apteva-chat-terminal .apteva-md-link:hover {
+    color: #fb923c !important;
+  }
+
+  .apteva-chat-terminal .apteva-md-inline-code {
+    background-color: #1a1a1a !important;
+    color: #3b82f6 !important;
+  }
+}
