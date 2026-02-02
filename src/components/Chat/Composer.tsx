@@ -155,9 +155,9 @@ export function Composer({ onSendMessage, placeholder = 'Type a message...', dis
     <div className="px-4 py-3 relative">
       {/* File Error Toast */}
       {fileError && (
-        <div className="absolute bottom-full left-4 right-4 mb-2 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg z-20">
-          <div className="flex items-center gap-2 !text-red-700 dark:!text-red-300 text-sm">
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="apteva-file-error">
+          <div className="apteva-file-error-content">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{fileError}</span>
@@ -167,33 +167,26 @@ export function Composer({ onSendMessage, placeholder = 'Type a message...', dis
 
       {/* Pending Files Preview */}
       {pendingFiles.length > 0 && (
-        <div className="mb-2 flex flex-wrap gap-2">
+        <div className="apteva-file-preview">
           {pendingFiles.map((pf, index) => (
-            <div
-              key={index}
-              className="relative group flex items-center gap-2 px-3 py-2 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg"
-            >
+            <div key={index} className="apteva-file-item">
               {pf.preview ? (
-                <img src={pf.preview} alt={pf.file.name} className="w-8 h-8 object-cover rounded" />
+                <img src={pf.preview} alt={pf.file.name} className="apteva-file-thumb" />
               ) : (
-                <div className="w-8 h-8 flex items-center justify-center bg-neutral-200 dark:bg-neutral-700 rounded !text-neutral-500 dark:!text-neutral-400">
+                <div className="apteva-file-icon">
                   {getFileIcon(pf.file.type)}
                 </div>
               )}
-              <div className="flex flex-col min-w-0">
-                <span className="text-xs font-medium !text-neutral-700 dark:!text-neutral-300 truncate max-w-[120px]">
-                  {pf.file.name}
-                </span>
-                <span className="text-xs !text-neutral-500 dark:!text-neutral-400">
-                  {formatFileSize(pf.file.size)}
-                </span>
+              <div className="apteva-file-info">
+                <span className="apteva-file-name">{pf.file.name}</span>
+                <span className="apteva-file-size">{formatFileSize(pf.file.size)}</span>
               </div>
               <button
                 onClick={() => removeFile(index)}
-                className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-neutral-500 hover:bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                className="apteva-file-remove"
                 title="Remove file"
               >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>

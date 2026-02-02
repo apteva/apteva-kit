@@ -898,6 +898,266 @@
     background-color: rgba(127, 29, 29, 0.5) !important;
   }
 
+  /* Apteva File Preview - Isolated styles */
+  .apteva-file-preview {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .apteva-file-item {
+    all: unset !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    background-color: #f5f5f5 !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 0.5rem !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+  }
+
+  .apteva-file-item:hover .apteva-file-remove {
+    opacity: 1 !important;
+  }
+
+  .apteva-file-thumb {
+    width: 2rem !important;
+    height: 2rem !important;
+    object-fit: cover !important;
+    border-radius: 0.25rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .apteva-file-icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #e5e5e5 !important;
+    border-radius: 0.25rem !important;
+    flex-shrink: 0 !important;
+    color: #737373 !important;
+  }
+
+  .apteva-file-icon svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .apteva-file-info {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+
+  .apteva-file-name {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    color: #404040 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    max-width: 120px !important;
+  }
+
+  .apteva-file-size {
+    font-size: 0.75rem !important;
+    color: #737373 !important;
+  }
+
+  .apteva-file-remove {
+    all: unset !important;
+    box-sizing: border-box !important;
+    position: absolute !important;
+    top: -0.375rem !important;
+    right: -0.375rem !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #737373 !important;
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    transition: opacity 0.15s ease, background-color 0.15s ease !important;
+  }
+
+  .apteva-file-remove:hover {
+    background-color: #ef4444 !important;
+  }
+
+  .apteva-file-remove svg {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+
+  /* File error toast */
+  .apteva-file-error {
+    all: unset !important;
+    box-sizing: border-box !important;
+    position: absolute !important;
+    bottom: 100% !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0.75rem !important;
+    background-color: #fef2f2 !important;
+    border: 1px solid #fecaca !important;
+    border-radius: 0.5rem !important;
+    z-index: 20 !important;
+  }
+
+  .apteva-file-error-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #b91c1c !important;
+    font-size: 0.875rem !important;
+  }
+
+  .apteva-file-error-content svg {
+    width: 1rem !important;
+    height: 1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-file-item {
+      background-color: #262626 !important;
+      border-color: #404040 !important;
+    }
+    .apteva-file-icon {
+      background-color: #404040 !important;
+      color: #a3a3a3 !important;
+    }
+    .apteva-file-name {
+      color: #d4d4d4 !important;
+    }
+    .apteva-file-size {
+      color: #a3a3a3 !important;
+    }
+    .apteva-file-error {
+      background-color: rgba(127, 29, 29, 0.3) !important;
+      border-color: #f87171 !important;
+    }
+    .apteva-file-error-content {
+      color: #fca5a5 !important;
+    }
+  }
+
+  .dark .apteva-file-item {
+    background-color: #262626 !important;
+    border-color: #404040 !important;
+  }
+
+  .dark .apteva-file-icon {
+    background-color: #404040 !important;
+    color: #a3a3a3 !important;
+  }
+
+  .dark .apteva-file-name {
+    color: #d4d4d4 !important;
+  }
+
+  .dark .apteva-file-size {
+    color: #a3a3a3 !important;
+  }
+
+  .dark .apteva-file-error {
+    background-color: rgba(127, 29, 29, 0.3) !important;
+    border-color: #f87171 !important;
+  }
+
+  .dark .apteva-file-error-content {
+    color: #fca5a5 !important;
+  }
+
+  /* Apteva File Badges (compact inline version) */
+  .apteva-file-badges {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .apteva-file-badge {
+    all: unset !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 0.25rem !important;
+    overflow: hidden !important;
+  }
+
+  .apteva-file-badge:hover .apteva-file-badge-remove {
+    opacity: 1 !important;
+  }
+
+  .apteva-file-badge-img {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    object-fit: cover !important;
+  }
+
+  .apteva-file-badge-icon {
+    font-size: 0.75rem !important;
+    color: #737373 !important;
+  }
+
+  .apteva-file-badge-icon svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .apteva-file-badge-remove {
+    all: unset !important;
+    box-sizing: border-box !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    transition: opacity 0.15s ease !important;
+  }
+
+  .apteva-file-badge-remove svg {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    color: #ffffff !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .apteva-file-badge {
+      background-color: #262626 !important;
+    }
+    .apteva-file-badge-icon {
+      color: #a3a3a3 !important;
+    }
+  }
+
+  .dark .apteva-file-badge {
+    background-color: #262626 !important;
+  }
+
+  .dark .apteva-file-badge-icon {
+    color: #a3a3a3 !important;
+  }
+
   /* Composer textarea - hidden scrollbar */
   .apteva-composer-textarea {
     -ms-overflow-style: none !important;

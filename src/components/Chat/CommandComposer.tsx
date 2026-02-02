@@ -178,9 +178,9 @@ export function CommandComposer({
     <div className="w-full relative">
       {/* File Error Toast */}
       {fileError && (
-        <div className="absolute -top-12 left-0 right-0 mx-3 p-2 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg z-30">
-          <div className="flex items-center gap-2 !text-red-700 dark:!text-red-300 text-xs">
-            <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="apteva-file-error" style={{ top: '-3rem', bottom: 'auto' }}>
+          <div className="apteva-file-error-content">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{fileError}</span>
@@ -271,26 +271,22 @@ export function CommandComposer({
 
         {/* Inline file badges - compact display */}
         {pendingFiles.length > 0 && state === 'idle' && (
-          <div className="flex items-center gap-1 flex-shrink-0">
+          <div className="apteva-file-badges">
             {pendingFiles.map((pf, index) => (
-              <div
-                key={index}
-                className="relative group flex items-center justify-center w-6 h-6 bg-neutral-100 dark:bg-neutral-800 rounded overflow-hidden"
-                title={pf.file.name}
-              >
+              <div key={index} className="apteva-file-badge" title={pf.file.name}>
                 {pf.preview ? (
-                  <img src={pf.preview} alt={pf.file.name} className="w-6 h-6 object-cover" />
+                  <img src={pf.preview} alt={pf.file.name} className="apteva-file-badge-img" />
                 ) : (
-                  <span className="text-xs !text-neutral-500 dark:!text-neutral-400">
+                  <span className="apteva-file-badge-icon">
                     {getFileIcon(pf.file.type)}
                   </span>
                 )}
                 <button
                   onClick={() => removeFile(index)}
-                  className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                  className="apteva-file-badge-remove"
                   title="Remove"
                 >
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
